@@ -1,0 +1,17 @@
+{
+  "name": "electron-clipboard-bug",
+  "version": "1.0.0",
+  "description": "Electron bug demo",
+  "author": "Boris Chekanovskiy <pratnomenis@gmail.com>",
+  "license": "MIT",
+  "main": "./main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^12.0.2",
+    "electron-builder": "^22.9.1"
+  }
+}
