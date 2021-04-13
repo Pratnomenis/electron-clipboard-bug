@@ -15,7 +15,13 @@ const {
         }
     });
     const thumbnail = sources[0].thumbnail;
-    const img = nativeImage.createFromDataURL(thumbnail.toDataURL());
+    const thumbnail4x = thumbnail.resize({
+      width: width * 4,
+      height: height * 4,
+      quality: 'best'
+    });
+    const imgBase64 = thumbnail4x.toDataURL();
+    const img = nativeImage.createFromDataURL(imgBase64);
     clipboard.writeImage(img);
     document.querySelector('h1').innerText = 'image copied to clipboard!'
   });
