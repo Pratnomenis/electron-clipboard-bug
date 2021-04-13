@@ -8,5 +8,23 @@
 </head>
 <body>
     <h1></h1>
+    <pre></pre>
+    <button onclick="refreshClipboardData()">!!!</button>
+    <script>
+        function refreshClipboardData(){
+            let pre = document.querySelector('pre');
+            let promise = navigator.clipboard.read();
+            pre.innerText = '';
+            promise.then(data => {
+                console.log(data);
+                let d = data[0];
+                pre.innerText = `${d.types} | ${d.presentationStyle}`;
+                d.getType(d.types).then(async f => {
+                    const buffer = await f.arrayBuffer();
+                    console.log(buffer);
+                });
+            })
+        }
+    </script>
 </body>
 </html>

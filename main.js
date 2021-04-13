@@ -16,16 +16,20 @@ function createWindow() {
 
     win.loadFile('index.html');
 
-    const {
+    const primaryDisplay = screen.getPrimaryDisplay();
+    const {scaleFactor} = primaryDisplay;
+    let {
         width,
         height
-    } = screen.getPrimaryDisplay().workAreaSize;
+    } = primaryDisplay.bounds;
+
+    width *= scaleFactor;
+    height *= scaleFactor;
 
     win.send('make-a-shot', {
         width,
         height
     });
-
 }
 
 app.whenReady().then(() => {
